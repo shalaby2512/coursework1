@@ -1,0 +1,8 @@
+<launch>
+    <!-- Set a parameter -->
+    <param name="turtle_speed" value="2.0" />
+
+    <!-- Launch the turtlesim_node -->
+    <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+</launch>
+
