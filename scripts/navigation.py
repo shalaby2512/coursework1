@@ -53,17 +53,14 @@ def direct_distance(target_pose):
     return sqrt(pow((target_pose.x - pose.x), 2) + pow((target_pose.y - pose.y), 2))
 
 
-def linear_vel(target_pose, constant=1.5):
+def linear_vel(target_pose):
 
     # Calculate the linear speed based on the distance to target.
 
-    if direct_distance(target_pose) < constant:
+    if direct_distance(target_pose):
 
         return direct_distance(target_pose)
 
-    else:
-
-        return constant * direct_distance(target_pose)
 
 
 def steering_angle(target_pose):
@@ -76,7 +73,6 @@ def steering_angle(target_pose):
 def angular_vel(target_pose, constant=6):
 
     # Calculate the angular velocity based on the difference between angles.
-
     return constant * (steering_angle(target_pose) - pose.theta)
 
 
