@@ -19,17 +19,7 @@ def spawn_turtle():
         rospy.logerr(f"Service call failed: {e}")
 
 # Function to launch the turtlesim node
-def launch_turtlesim():
-    """
-    Launch the turtlesim_node programmatically using rosrun
-    """
-    try:
-        # Run the turtlesim node using subprocess
-        rospy.loginfo("Launching turtlesim_node...")
-        subprocess.Popen(["rosrun", "turtlesim", "turtlesim_node"])
-        rospy.sleep(2)  # Give it some time to initialize before spawning turtles
-    except Exception as e:
-        rospy.logerr(f"Error launching turtlesim_node: {e}")
+
 
 # Function to control the turtle via getch input
 def initialise():
@@ -69,18 +59,18 @@ def main():
     rospy.init_node('turtle_teleop', anonymous=False)
 
     # Run launch_turtlesim() and spawn_turtle() in separate threads
-    launch_thread = threading.Thread(target=launch_turtlesim)
+    #launch_thread = threading.Thread(target=launch_turtlesim)
     spawn_thread = threading.Thread(target=spawn_turtle)
 
     # Start the threads
-    launch_thread.start()
+    #launch_thread.start()
     spawn_thread.start()
 
     # Run the turtle control in the main thread
     initialise()
 
     # Wait for threads to finish (this step ensures that the subprocesses finish)
-    launch_thread.join()
+    #launch_thread.join()
     spawn_thread.join()
 
 
