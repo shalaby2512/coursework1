@@ -4,5 +4,6 @@
 
     <!-- Launch the turtlesim_node -->
     <node name="turtlesim_node" pkg="turtlesim" type="turtlesim_node" output="screen"/>
+    <node name="my_teleop" pkg="coursework1" type="turtlesim_teleop.py" output="screen"/>
 </launch>
 
